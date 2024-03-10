@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Account</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="./img/facebook_logo.svg" height="106" width="300" alt="facebook logo">
+        </div>        
+        <p class="slogan">Create a new account to connect with friends and family.</p>
+        <form action="#" method="post">
+            <input type="text" placeholder="First Name" name="firstname" required>
+            <input type="text" placeholder="Last Name" name="lastname" required>
+            <input type="email" placeholder="Email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <a href="index.html">Back to Login</a>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="clone of the facebook login page">
+    <meta name="author" content="Jose W. Rivas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">      
+</head>
+
+<body>
+
+    <main role="main">
+        <div class="container">
+            <div class="content flex">
+                <div class="logo-and-subheading">
+                    <div class="logo">
+                        <img src="./img/facebook_logo.svg" height="106" width="300" alt="facebook logo">
+                    </div>
+                    <div class="subheading">
+                        <h2>Connect with friends and the world<br> around you on Facebook.</h2>
+                    </div>
+                </div>
+                <div class="card-and-alternative flex-column">
+                    <div class="card flex-column">
+                        <form action="Account.php" method="post" onsubmit="return validationForm()">
+                            <input type="text" placeholder="First Name" name="firstname" required style="width: 360px; ">
+                            <br>
+                            <br>
+                            <input type="text" placeholder="Last Name" name="lastname" required style="width: 360px; ">
+                            <br>
+                            <br>
+                            <input type="email" placeholder="Email" name="email" required style="width: 360px; ">
+                            <br>
+                            <br>
+                            <input type="password" placeholder="Password" name="password" required style="width: 360px; ">
+                            <br>
+                            <br>
+                            <input type="password" placeholder="Confirm Password" name="confirm_password" required style="width: 360px; ">
+                            <br>
+                            <br>
+                            <button class="signup-button" style="width: 360px; ">Sign Up</button>
+                        </form>
+                        <hr>
+                        <a href="index.html" style="font-size: 20px;">Back to Login</a>
+                        <script>
+                            const firstname = document.getElementById("username");
+                            const lastname = document.getElementById("username");
+                            const email = document.getElementById("email");
+                            const password = document.getElementById("password");
+                            const confirmPassword = document.getElementById("confirmPassword");
+
+                            function validationForm()
+                            {
+                            if (!firstname.value || !lastname.value || !email.value || !password.value || !confirmPassword.value ) {
+                                alert("All fields are required.");
+                                return false;
+                            }
+                        
+                            if (firstname.value.length < 6) {
+                                alert("Username must be at least 6 characters.");
+                                return false;
+                            }
+
+                            
+                            if (lastname.value.length < 6) {
+                                alert("Username must be at least 6 characters.");
+                                return false;
+                            }
+
+                            else if(lastname.value != "" && firstname.value != ""){
+                                if (lastname.value.toLowerCase() != firstname.value.toLowerCase()) {
+                                    alert("First name and Last Name should have same letters.");
+                                    return false;
+                                    }  
+                            }
+                        
+                            const emailPattern = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+                            if (!emailPattern.test(email.value)) {
+                                alert("Email must be of the form 'yourname@domain.com'.");
+                                return false;
+                            }
+
+                            if (password.value.length < 8) {
+                                alert("Password must be at least 8 characters.");
+                                return false;
+                            }
+                        
+                            // Check for password constraints here, such as checking for special characters or numbers.
+                            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+                            if (!passwordPattern.test(password.value)) {
+                                alert("Password must be at least 8 characters and contain a digit, an uppercase letter, and a lowercase letter.");
+                                return false;
+                            }
+                        
+                            if (password.value !== confirmPassword.value) {
+                                alert("Passwords do not match.");
+                                return false;
+                            }
+
+                            // If all validations pass, you can submit the form data to the server.
+                            alert("Registration successful!");
+                            return true;
+                            };
+                        </script>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
